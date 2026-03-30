@@ -1,108 +1,41 @@
 /* =====================================================
-   form_login.css
-   Estilos exclusivos da tela de login (index.html).
-   Define o layout centralizado do formulário e a
-   aparência dos campos e botão de acesso.
+   body.css
+   Estilos globais e de base aplicados a toda a aplicação.
+   Define reset de margens, fonte padrão e o background
+   com efeito de desfoque (blur) via pseudo-elemento.
    ===================================================== */
 
-/* Área principal: centraliza o formulário verticalmente
-   e horizontalmente na viewport */
-main {
-    min-height: 90vh;
-    min-width: 100vw;
+/* Reset global: remove margens, paddings e padroniza
+   o modelo de caixa para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", Helvetica, sans-serif;
+}
+
+/* Garante que o body ocupe toda a viewport */
+body {
+    min-height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* alinha no topo com margem definida abaixo */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Container externo do formulário com fundo azul semitransparente */
-.container {
-    display: flex;
-    margin-top: 5vh;
-    height: 235px;
-    max-width: 560px;
-    width: 50vw;
-    min-width: 300px;
+/* Pseudo-elemento para aplicar a imagem de fundo com blur.
+   Usa position absolute cobrindo o body inteiro (inset: 0).
+   O scale(1.1) evita bordas brancas ao redor do blur. */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
 
-    background-color: rgba(0, 111, 255, 0.64);
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border-radius: 20px;
-}
+    background-image: url("../img/background.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
-/* Formulário interno com fundo verde semitransparente */
-#login_form {
-    align-content: center;
-    text-align: left;
-    display: block;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(42, 165, 48, 0.64);
-    border-radius: 20px;
-}
-
-/* Fieldset sem borda para layout limpo */
-#login_fieldset {
-    display: block;
-    padding: 5px;
-    border: none;
-}
-
-/* Título "Login" do fieldset */
-#login_fieldset legend {
-    font-size: x-large;
-}
-
-/* Linha de cada campo (label + input) */
-#login_fieldset div {
-    font-size: large;
-    display: block;
-    margin: 5px;
-}
-
-/* Inputs de texto e senha com fundo branco semitransparente */
-#login_fieldset input {
-    font-size: large;
-    width: 100%;
-    height: 15%;
-    background-color: rgb(255, 255, 255, 0.69);
-    border: black solid 1px;
-    border-radius: 10px;
-    padding: 3px 10px;
-}
-
-/* Regra legada para textarea dentro de input (não usada atualmente) */
-#login_fieldset input textarea {
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.69);
-    border: 1px solid black;
-}
-
-/* Container do botão de login: centraliza horizontalmente */
-.button_login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-}
-
-/* Botão "Entrar" com fundo azul semitransparente */
-.button_login button {
-    text-align: center;
-    width: 50%;
-    height: 100%;
-    background-color: rgba(0, 111, 255, 0.64);
-    border-radius: 20px;
-    border: transparent;
-}
-
-/* Efeito hover: escala o botão e adiciona borda ciano */
-.button_login button:hover {
-    transform: scale(1.1);
-    border: aqua 1px solid;
+    filter: blur(10px);      /* efeito de desfoque no fundo */
+    transform: scale(1.1);   /* expande levemente para cobrir as bordas */
+    z-index: -1;             /* mantém o fundo atrás do conteúdo */
 }
