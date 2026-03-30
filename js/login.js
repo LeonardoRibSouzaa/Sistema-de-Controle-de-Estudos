@@ -11,6 +11,8 @@ function logar(){
         const data = Object.fromEntries(formData.entries());
         console.log("usuario ",data.usuario," fez login"); // {nome: "Leo", email: "leo@email.com"}
 
+        localStorage.setItem("usuario", data.usuario)
+
         window.location.href = window.location.origin + "/menu.html";
 
 

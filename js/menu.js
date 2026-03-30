@@ -186,5 +186,9 @@ function init(){
     bindCadastro()
     renderDashboard()
 
+    usuario = localStorage.getItem("usuario")
+    usuario_dado_id = document.getElementById("usuario_dado")
+    usuario_dado_id.textContent = usuario
+
 }
 init();
