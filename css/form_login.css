@@ -1,75 +1,81 @@
-main{
+/* Container principal que centraliza todo o formulário na tela */
+main {
     min-height: 90vh;
     min-width: 100vw;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Mantém um respiro no topo em telas menores */
 }
 
-
-.container{
+/* Caixa externa do login com fundo azul translúcido */
+.container {
     display: flex;
     margin-top: 5vh;
     height: 235px;
     max-width: 560px;
     width: 50vw;
-    min-width: 300px;
+    min-width: 300px; /* Garante que não quebre em celulares pequenos */
 
-    background-color: rgba(0, 111, 255 , 0.64);
+    background-color: rgba(0, 111, 255, 0.64);
     justify-content: center;
     align-items: center;
     padding: 10px;
     border-radius: 20px;
 }
 
-#login_form{
+/* Área interna do formulário com fundo esverdeado */
+#login_form {
     align-content: center;
     text-align: left;
     display: block;
     height: 100%;
     width: 100%;
-    background-color: rgb(42, 165, 48 , 0.64);
+    background-color: rgb(42, 165, 48, 0.64);
     border-radius: 20px;
 }
 
-#login_fieldset{
+/* Agrupamento dos campos de entrada */
+#login_fieldset {
     display: block;
     padding: 5px;
     border: none;
 }
 
-#login_fieldset legend{
+/* Estilo do título do formulário */
+#login_fieldset legend {
     font-size: x-large;
 }
 
-#login_fieldset div{
+/* Espaçamento entre os labels e inputs */
+#login_fieldset div {
     font-size: large;
     display: block;
     margin: 5px;
 }
 
-#login_fieldset input{
+/* Estilização dos campos de texto e senha */
+#login_fieldset input {
     font-size: large;
     width: 100%;
     height: 15%;
-    background-color: rgb(255, 255, 255 , 0.69);
+    background-color: rgb(255, 255, 255, 0.69);
     border: black solid 1px;
     border-radius: 10px;
     padding: 3px 10px;
 }
 
-#login_fieldset input textarea{
+/* Configuração caso precise usar textarea no futuro */
+#login_fieldset input textarea {
     color: white;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba(255,255,255,0.69);
+    background-color: rgba(255, 255, 255, 0.69);
     border: 1px solid black;
-
 }
 
-
-.button_login{
+/* Container para alinhar o botão de envio */
+.button_login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,17 +83,19 @@ main{
     height: 20%;
 }
 
-.button_login button{
+/* Botão de entrar com estilo arredondado */
+.button_login button {
     text-align: center;
     width: 50%;
     height: 100%;
-    background-color: rgba(0, 111, 255 , 0.64);
+    background-color: rgba(0, 111, 255, 0.64);
     border-radius: 20px;
     border: transparent;
-
+    cursor: pointer;
 }
 
-.button_login button:hover{
+/* Efeito de destaque ao passar o mouse no botão */
+.button_login button:hover {
     transform: scale(1.1);
     border: aqua 1px solid;
 }
