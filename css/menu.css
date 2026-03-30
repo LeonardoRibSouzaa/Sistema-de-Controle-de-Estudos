@@ -1,0 +1,273 @@
+.header_login{
+    justify-content: flex-start;
+
+}
+
+.logo_login{
+    margin: 7px;
+}
+
+.layout{
+    display: flex;
+}
+
+.sidebar{
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 20px 10px;
+}
+
+.sidebar_menu{
+    padding: 12px 12px;
+    list-style: none;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar_item{
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.sidebar_item:hover {
+    background-color: rgba(42, 165, 48, 0.45);
+}
+
+.sidebar_item.active {
+    background-color: rgba(42, 165, 48, 0.7);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* MAIN */
+.main_content {
+    flex: 1;
+    padding: 28px 32px;
+}
+
+
+.section_title {
+    font-size: 1.6rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    border-left: 4px solid rgba(42, 165, 48, 0.9);
+    padding-left: 12px;
+}
+
+.content_section { display: none; }
+.content_section.active { display: block; }
+
+.msg_vazia {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+#modal_editar {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#modal_editar form {
+    background-color: rgba(20, 40, 80, 0.75);
+    padding: 28px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 320px;
+}
+
+#modal_editar label {
+    color: white;
+}
+
+#modal_editar input,
+#modal_editar select {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+}
+
+/* Card de cada disciplina */
+#lista_disciplinas div {
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Botões excluir e editar */
+#lista_disciplinas button {
+    padding: 5px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-left: auto;
+}
+
+#lista_disciplinas button:first-of-type {
+    background-color: rgba(220, 50, 50, 0.7);
+    color: white;
+}
+
+#lista_disciplinas button:last-of-type {
+    background-color: rgba(0, 111, 255, 0.7);
+    color: white;
+}
+
+/* Container do formulário */
+form {
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+}
+
+/* Labels */
+form label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Inputs e selects */
+form input,
+form select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+/* Botão de submit */
+form button[type="submit"] {
+    background-color: rgba(42, 165, 48, 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+form .cancel {
+    background-color: rgb(165 ,42 ,42 , 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+form button[type="submit"]:hover,.cancel:hover {
+    transform: scale(1.03);
+}
+
+.dashboard_cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.dash_card {
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 160px;
+    transition: transform 0.2s;
+}
+
+.dash_card:hover {
+    transform: translateY(-4px);
+}
+
+.dash_icon {
+    font-size: 2rem;
+}
+
+.dash_card strong {
+    font-size: 2rem;
+    color: white;
+}
+
+.dash_card p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Hover nos cards da lista */
+#lista_disciplinas div {
+    transition: transform 0.2s;
+}
+
+#lista_disciplinas div:hover {
+    transform: translateX(6px);
+}
+
+/* Scrollbar da sidebar e main */
+.main_content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Responsivo — tela pequena */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 56px;
+        padding: 10px 4px;
+    }
+
+    .sidebar_item {
+        font-size: 0;
+    }
+
+    .sidebar_item::first-letter {
+        font-size: 1.4rem;
+    }
+
+    .main_content {
+        padding: 16px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .dashboard_cards {
+        flex-direction: column;
+    }
+}

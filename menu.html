@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/hearders.css">
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="stylesheet" href="./css/form_login.css">
+    <link rel="stylesheet" href="./css/menu.css">
+
+    <title>Sistema de Controle de Estudos</title>
+</head>
+
+<body>
+
+<header class="header_login">
+    <div class="logo_login">
+        <img src="img/logo_completa.png" alt="Logo do Sistema" height="100%" >
+    </div>
+</header>
+
+<section class="layout">
+
+    <nav class="sidebar">
+        <ul class="sidebar_menu">
+            <li class="sidebar_item active" data-section="dashboard">📊 Dashboard</li>
+            <li class="sidebar_item" data-section="cadastro">📚 Cadastrar Disciplina</li>
+            <li class="sidebar_item" data-section="horas">⏱️ Registrar Horas</li>
+            <li class="sidebar_item" data-section="diciplinas">📋 Minhas Disciplinas</li>
+        </ul>
+    </nav>
+
+    <main class="main_content">
+        <section id="section_dashboard" class="content_section active">
+            <h2 class="section_title">Dashboard</h2>
+
+            <div class="dashboard_cards">
+                <div class="dash_card">
+                    <span class="dash_icon">📚</span>
+                    <strong id="total_disc">0</strong>
+                    <p>Total de Disciplinas</p>
+                </div>
+                <div class="dash_card">
+                    <span class="dash_icon">⏱️</span>
+                    <strong id="total_horas">0</strong>
+                    <p>Horas Estudadas</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section_cadastro" class="content_section">
+            <h2 class="section_title">Cadastro</h2>
+
+            <form id="form_cadastro">
+                <label>Nome da Disciplina</label>
+                <input type="text" id="inp_nome" required>
+
+                <label>Professor</label>
+                <input type="text" id="inp_professor" required>
+
+                <label>Carga Horária (h)</label>
+                <input type="number" id="inp_hora" min="1" required>
+
+                <label>Área</label>
+                <select id="inp_area" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Exatas">Exatas</option>
+                    <option value="Humanas">Humanas</option>
+                    <option value="Biológicas">Biológicas</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                </select>
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+
+        </section>
+
+        <section id="section_horas" class="content_section">
+            <h2 class="section_title">Registrar Horas</h2>
+
+            <form id="form_horas">
+
+                <label>Disciplina</label>
+                <select id="inp_disciplina" required>
+                    <option value="" disabled selected>Selecione</option>
+                </select>
+
+                <label>Horas estudadas</label>
+                <input type="number" id="inp_horas" min="1" required>
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+
+        </section>
+
+        <section id="section_diciplinas" class="content_section">
+            <h2 class="section_title">Diciplinas</h2>
+            <div id="lista_disciplinas"></div>
+
+        </section>
+
+    </main>
+
+</section>
+
+<footer class="footer"></footer>
+
+<div id="modal_editar" style="display:none">
+    <form id="form_editar">
+        <input type="hidden" id="edit_idx">
+
+        <label>Nome</label>
+        <input type="text" id="edit_nome" required>
+
+        <label>Professor</label>
+        <input type="text" id="edit_professor" required>
+
+        <label>Carga Horária</label>
+        <input type="number" id="edit_carga" min="1" required>
+
+        <label>Área</label>
+        <select id="edit_area" required>
+            <option value="Exatas">Exatas</option>
+            <option value="Humanas">Humanas</option>
+            <option value="Biológicas">Biológicas</option>
+            <option value="Tecnologia">Tecnologia</option>
+        </select>
+
+        <button type="submit">Salvar</button>
+        <button class="cancel" type="button" onclick="fecharModal()">Cancelar</button>
+    </form>
+</div>
+
+<script src="js/menu.js"></script>
+
+
+
+</body>
+</html>
