@@ -32,7 +32,7 @@ function logar() {
         localStorage.setItem("usuario", data.usuario);
 
         // Redireciona para a página principal do sistema
-        window.location.href = window.location.origin + "/menu.html";
+        window.location.href = "./menu.html";
     });
 }
 
