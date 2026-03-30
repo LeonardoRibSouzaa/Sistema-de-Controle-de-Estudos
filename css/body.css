@@ -1,3 +1,12 @@
+/* =====================================================
+   body.css
+   Estilos globais e de base aplicados a toda a aplicação.
+   Define reset de margens, fonte padrão e o background
+   com efeito de desfoque (blur) via pseudo-elemento.
+   ===================================================== */
+
+/* Reset global: remove margens, paddings e padroniza
+   o modelo de caixa para todos os elementos */
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +14,18 @@
     font-family: "Arial", Helvetica, sans-serif;
 }
 
-body{
+/* Garante que o body ocupe toda a viewport */
+body {
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
     overflow: hidden;
-
 }
 
-body::before{
+/* Pseudo-elemento para aplicar a imagem de fundo com blur.
+   Usa position absolute cobrindo o body inteiro (inset: 0).
+   O scale(1.1) evita bordas brancas ao redor do blur. */
+body::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -23,8 +35,7 @@ body::before{
     background-repeat: no-repeat;
     background-position: center;
 
-    filter: blur(10px);
-    transform: scale(1.1);
-    z-index: -1;
-
+    filter: blur(10px);      /* efeito de desfoque no fundo */
+    transform: scale(1.1);   /* expande levemente para cobrir as bordas */
+    z-index: -1;             /* mantém o fundo atrás do conteúdo */
 }

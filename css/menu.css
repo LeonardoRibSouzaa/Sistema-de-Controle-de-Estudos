@@ -1,42 +1,65 @@
-.header_login{
-    justify-content: space-between;
+/* =====================================================
+   menu.css
+   Estilos do sistema principal (menu.html).
+   Cobre: header, sidebar, conteúdo, cards do dashboard,
+   lista de disciplinas, modal de edição, formulários,
+   campo de busca e responsividade mobile.
+   ===================================================== */
 
+/* ---- HEADER ---------------------------------------- */
+
+/* No menu, o header distribui logo e info do usuário
+   nas extremidades (space-between) */
+.header_login {
+    justify-content: space-between;
 }
 
-.dados_login{
+/* Badge com o nome do usuário logado no canto direito */
+.dados_login {
     margin-right: 5%;
-    background-color: rgb(0 ,0 ,0 , 0.71);
+    background-color: rgb(0, 0, 0, 0.71);
     height: 50%;
     padding: 1% 3%;
     border-radius: 15px;
 }
 
-#usuario_header{
+/* Texto do nome do usuário em branco */
+#usuario_header {
     color: white;
     font-weight: 500;
 }
-.logo_login{
+
+/* Margem do logo no header do menu */
+.logo_login {
     margin: 7px;
 }
 
-.layout{
+/* ---- LAYOUT GERAL ---------------------------------- */
+
+/* Flex container que divide sidebar e conteúdo principal */
+.layout {
     display: flex;
 }
 
-.sidebar{
+/* ---- SIDEBAR --------------------------------------- */
+
+/* Barra lateral de navegação com largura fixa */
+.sidebar {
     width: 220px;
     background-color: rgba(0, 0, 0, 0.35);
     padding: 20px 10px;
 }
 
-.sidebar_menu{
+/* Lista de itens do menu lateral sem marcadores */
+.sidebar_menu {
     padding: 12px 12px;
     list-style: none;
     flex-direction: column;
     gap: 6px;
 }
 
-.sidebar_item{
+/* Cada item de menu: espaçamento, bordas arredondadas e cursor pointer */
+.sidebar_item {
     margin: 2px;
     padding: 12px 14px;
     border-radius: 12px;
@@ -46,23 +69,29 @@
     transition: background-color 0.2s;
 }
 
+/* Hover: fundo verde claro ao passar o mouse */
 .sidebar_item:hover {
     background-color: rgba(42, 165, 48, 0.45);
 }
 
+/* Item ativo (seção atual): fundo verde mais opaco e negrito */
 .sidebar_item.active {
     background-color: rgba(42, 165, 48, 0.7);
     color: #fff;
     font-weight: bold;
 }
 
-/* MAIN */
+/* ---- CONTEÚDO PRINCIPAL ---------------------------- */
+
+/* Área de conteúdo que ocupa o restante do espaço */
 .main_content {
     flex: 1;
     padding: 28px 32px;
+    max-height: 90vh;
+    overflow-y: auto; /* scroll interno para não estourar a tela */
 }
 
-
+/* Título de cada seção com borda esquerda verde */
 .section_title {
     font-size: 1.6rem;
     color: #fff;
@@ -72,9 +101,11 @@
     padding-left: 12px;
 }
 
+/* Seções ocultas por padrão; apenas a .active é exibida */
 .content_section { display: none; }
 .content_section.active { display: block; }
 
+/* Mensagem exibida quando lista ou busca não retorna resultados */
 .msg_vazia {
     color: rgba(255, 255, 255, 0.6);
     font-style: italic;
@@ -82,6 +113,27 @@
     padding: 20px;
 }
 
+/* ---- CAMPO DE BUSCA -------------------------------- */
+
+/* Container do campo de busca na seção de disciplinas */
+.search_container {
+    margin-bottom: 16px;
+}
+
+/* Input de busca: largura total, bordas arredondadas */
+.search_container input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+/* ---- MODAL DE EDIÇÃO ------------------------------- */
+
+/* Overlay do modal: cobre toda a tela com fundo escuro */
 #modal_editar {
     position: fixed;
     inset: 0;
@@ -89,9 +141,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 999; /* garante que fique acima de tudo */
 }
 
+/* Formulário dentro do modal */
 #modal_editar form {
     background-color: rgba(20, 40, 80, 0.75);
     padding: 28px;
@@ -102,10 +155,12 @@
     min-width: 320px;
 }
 
+/* Labels do modal em branco */
 #modal_editar label {
     color: white;
 }
 
+/* Inputs e selects do modal */
 #modal_editar input,
 #modal_editar select {
     padding: 8px;
@@ -114,7 +169,9 @@
     width: 100%;
 }
 
-/* Card de cada disciplina */
+/* ---- LISTA DE DISCIPLINAS -------------------------- */
+
+/* Card de cada disciplina na listagem */
 #lista_disciplinas div {
     background-color: rgba(0, 0, 0, 0.35);
     color: white;
@@ -125,9 +182,15 @@
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    transition: transform 0.2s;
 }
 
-/* Botões excluir e editar */
+/* Efeito hover nos cards: desliza levemente para a direita */
+#lista_disciplinas div:hover {
+    transform: translateX(6px);
+}
+
+/* Botões Excluir e Editar dentro dos cards */
 #lista_disciplinas button {
     padding: 5px 14px;
     border: none;
@@ -137,17 +200,21 @@
     margin-left: auto;
 }
 
+/* Botão Excluir: vermelho */
 #lista_disciplinas button:first-of-type {
     background-color: rgba(220, 50, 50, 0.7);
     color: white;
 }
 
+/* Botão Editar: azul */
 #lista_disciplinas button:last-of-type {
     background-color: rgba(0, 111, 255, 0.7);
     color: white;
 }
 
-/* Container do formulário */
+/* ---- FORMULÁRIOS GERAIS ---------------------------- */
+
+/* Container de formulário com fundo semitransparente */
 form {
     background-color: rgba(0, 0, 0, 0.35);
     padding: 24px;
@@ -158,14 +225,14 @@ form {
     max-width: 500px;
 }
 
-/* Labels */
+/* Labels dos formulários */
 form label {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-/* Inputs e selects */
+/* Inputs e selects dos formulários */
 form input,
 form select {
     padding: 8px 12px;
@@ -176,7 +243,7 @@ form select {
     width: 100%;
 }
 
-/* Botão de submit */
+/* Botão de submit (Cadastrar / Salvar): verde */
 form button[type="submit"] {
     background-color: rgba(42, 165, 48, 0.8);
     color: white;
@@ -189,8 +256,9 @@ form button[type="submit"] {
     transition: transform 0.15s;
 }
 
+/* Botão Cancelar do modal: vermelho */
 form .cancel {
-    background-color: rgb(165 ,42 ,42 , 0.8);
+    background-color: rgb(165, 42, 42, 0.8);
     color: white;
     border: none;
     border-radius: 10px;
@@ -201,16 +269,22 @@ form .cancel {
     transition: transform 0.15s;
 }
 
-form button[type="submit"]:hover,.cancel:hover {
+/* Hover nos botões de ação: leve escala */
+form button[type="submit"]:hover,
+.cancel:hover {
     transform: scale(1.03);
 }
 
+/* ---- DASHBOARD ------------------------------------- */
+
+/* Grid de cards do dashboard com Flexbox */
 .dashboard_cards {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
 }
 
+/* Card individual do dashboard */
 .dash_card {
     background-color: rgba(0, 0, 0, 0.35);
     border-radius: 16px;
@@ -223,63 +297,60 @@ form button[type="submit"]:hover,.cancel:hover {
     transition: transform 0.2s;
 }
 
+/* Hover: eleva o card levemente */
 .dash_card:hover {
     transform: translateY(-4px);
 }
 
+/* Ícone emoji do card */
 .dash_icon {
     font-size: 2rem;
 }
 
+/* Número em destaque no card */
 .dash_card strong {
     font-size: 2rem;
     color: white;
 }
 
+/* Descrição abaixo do número */
 .dash_card p {
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.85rem;
     text-align: center;
 }
 
-/* Hover nos cards da lista */
-#lista_disciplinas div {
-    transition: transform 0.2s;
-}
+/* ---- RESPONSIVIDADE -------------------------------- */
 
-#lista_disciplinas div:hover {
-    transform: translateX(6px);
-}
-
-/* Scrollbar da sidebar e main */
-.main_content {
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-/* Responsivo — tela pequena */
+/* Em telas pequenas (até 600px), a sidebar encolhe
+   e exibe apenas a inicial de cada item */
 @media (max-width: 600px) {
     .sidebar {
         width: 56px;
         padding: 10px 4px;
     }
 
+    /* Oculta o texto dos itens */
     .sidebar_item {
         font-size: 0;
     }
 
+    /* Exibe apenas a primeira letra (emoji) em tamanho maior */
     .sidebar_item::first-letter {
         font-size: 1.4rem;
     }
 
+    /* Reduz o padding do conteúdo principal em mobile */
     .main_content {
         padding: 16px;
     }
 
+    /* Formulários ocupam toda a largura disponível */
     form {
         max-width: 100%;
     }
 
+    /* Cards do dashboard empilhados verticalmente */
     .dashboard_cards {
         flex-direction: column;
     }
