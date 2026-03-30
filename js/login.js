@@ -11,7 +11,7 @@ function logar(){
         const data = Object.fromEntries(formData.entries());
         console.log("usuario ",data.usuario," fez login"); // {nome: "Leo", email: "leo@email.com"}
 
-        window.location.href = "../menu.html"
+        window.location.href = window.location.origin + "/menu.html";
 
 
 
